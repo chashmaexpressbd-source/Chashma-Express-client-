@@ -68,7 +68,7 @@ const Navbar = () => {
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-r-md hover:from-amber-600 hover:to-amber-700 transition duration-200 font-semibold shadow-lg"
+                className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-r-md hover:from-red-600 hover:to-red-700 transition duration-200 font-semibold shadow-lg"
               >
                 Search
               </button>
