@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-[#eaf4f4] via-[#e9ecef] to-[#ced4da]">
       {/* Main Footer Content */}
-      <div className="pt-10 pb-6">
+      <div className="pt-10 md:pb-6">
         <div className="sm:max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-6">
             {/* Company Info */}
@@ -118,7 +118,7 @@ const Footer = () => {
                 © {new Date().getFullYear()} Chashma Express BD. All rights
                 reserved.
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="hidden md:flex flex flex-wrap justify-center gap-6">
                 {[
                   'Privacy Policy',
                   'Terms of Service',
