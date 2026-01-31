@@ -34,7 +34,7 @@ const Search = () => {
   return (
     <div className="max-w-7xl mx-auto">
       {products.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {products.map(product => (
             <ProductCards key={product._id} product={product}></ProductCards>
           ))}

@@ -9,7 +9,6 @@ import {
 } from 'react-icons/fa';
 
 import ICON from '../../assets/logo.png';
-import NavMarquee from './NavMarquee';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +39,9 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <FaTimes className="w-6 h-6" />
+              <>
+                <FaTimes className="w-6 h-6" />
+              </>
             ) : (
               <FaBars className="w-6 h-6" />
             )}
@@ -114,6 +115,22 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-[80px] left-0 w-full bg-white shadow-xl z-40">
+            <ul className="flex flex-col">
+              <li>
+                <Link
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-6 py-4 hover:bg-gray-100 font-medium"
+                >
+                  Home
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
 
         {/* Search bar - Mobile */}
         {isMobileSearchOpen && (

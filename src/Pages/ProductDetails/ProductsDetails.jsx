@@ -132,7 +132,6 @@ const ProductDetails = () => {
     images = ['https://via.placeholder.com/500x500?text=No+Image'],
     stock = 0,
     freeDelivery = false,
-    warranty = '',
     frameColor = '',
     frameMaterial = '',
     lensColor = '',
@@ -266,7 +265,7 @@ const ProductDetails = () => {
                 <span className="text-sm text-gray-500">{brand}</span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3">
+              <h1 className="text-xl md:text-4xl font-bold text-gray-900 leading-tight mb-3">
                 {name}
               </h1>
 
@@ -285,7 +284,7 @@ const ProductDetails = () => {
                 </div>
                 <div className="flex items-center gap-1 text-sm text-green-600">
                   <FaCheck size={14} />
-                  <span>In Stock</span>
+                  <span>Cash On Delivery</span>
                 </div>
               </div>
             </div>
@@ -377,7 +376,7 @@ const ProductDetails = () => {
                   className="flex-1 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-6 rounded-md font-bold text-lg transition-all duration-200 hover:shadow-xl active:scale-[0.98] flex items-center justify-center gap-3 shadow-lg shadow-red-200"
                 >
                   <FaShoppingCart size={20} />
-                  Buy Now
+                  Order Now
                 </button>
               </div>
             </div>

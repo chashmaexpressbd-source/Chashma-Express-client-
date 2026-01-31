@@ -350,7 +350,7 @@ const BuyNowModal = ({ isOpen, onClose, product, quantity }) => {
               <button
                 onClick={handleConfirm}
                 disabled={!canProceed || isSubmitting}
-                className="px-2 py-2 md:px-6 md:py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center min-w-[140px] flex-1 sm:flex-none"
+                className="px-2 py-2 md:px-6 md:py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center min-w-[140px] flex-1 sm:flex-none"
               >
                 {isSubmitting ? (
                   <>
