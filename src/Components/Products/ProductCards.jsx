@@ -140,7 +140,7 @@ const ProductCards = ({ product }) => {
 
         {/* Specifications Preview - Hidden on mobile */}
         {specifications && specifications.length > 0 && (
-          <div className="hidden sm:flex items-center gap-2 text-xs lg:text-sm text-gray-600 mb-2 lg:mb-4">
+          <div className="hidden sm:flex items-center gap-2 text-xs lg:text-sm text-gray-600 ">
             <FaTag className="text-gray-400" size={10} />
             <span className="truncate">
               {specifications[0]?.substring(0, 40)}
@@ -148,22 +148,12 @@ const ProductCards = ({ product }) => {
             </span>
           </div>
         )}
-
-        {/* Rating - Hidden on mobile */}
-        <div className="hidden sm:flex items-center gap-1 mb-2 lg:mb-4">
-          {[...Array(5)].map((_, i) => (
-            <FaStar
-              key={i}
-              className={i < 4 ? 'text-amber-400' : 'text-gray-300'}
-              size={12}
-            />
-          ))}
-          <span className="text-xs text-gray-500 ml-1">(4.2)</span>
-        </div>
+        {/* 
+    
 
         {/* Price Section */}
         <div className="mt-auto">
-          <div className="flex items-baseline mb-2 sm:mb-3 lg:mb-4">
+          <div className="flex items-baseline mb-1 sm:mb-2 lg:mb-3">
             {displayDiscountPrice ? (
               <>
                 <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">

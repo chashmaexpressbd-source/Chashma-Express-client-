@@ -21,7 +21,6 @@ const BuyNowModal = ({ isOpen, onClose, product, quantity }) => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [currentStep, setCurrentStep] = useState(1);
 
   if (!isOpen) return null;
 
@@ -54,7 +53,6 @@ const BuyNowModal = ({ isOpen, onClose, product, quantity }) => {
       onClose();
       // Reset form
       setUserInfo({ name: '', email: '', phone: '', address: '' });
-      setCurrentStep(1);
     } catch (err) {
       console.error(err);
       toast.error('Failed to place order. Please try again.');
@@ -66,7 +64,8 @@ const BuyNowModal = ({ isOpen, onClose, product, quantity }) => {
   // Calculate prices
   const productPrice = product?.discountPrice || product?.price || 0;
   const productTotal = productPrice * quantity;
-  const deliveryCharge = 120; // 120 TK delivery charge
+  const deliveryCharge = product?.freeDelivery ? 0 : 120;
+
   const totalPrice = productTotal + deliveryCharge;
   const discountAmount = product?.price
     ? (product.price - productPrice) * quantity
@@ -95,47 +94,6 @@ const BuyNowModal = ({ isOpen, onClose, product, quantity }) => {
             >
               <FaTimes size={24} />
             </button>
-          </div>
-
-          {/* Progress Steps */}
-          <div className="flex items-center justify-center mt-6">
-            <div
-              className={`flex items-center ${
-                currentStep >= 1 ? 'text-white' : 'text-red-300'
-              }`}
-            >
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-                  currentStep >= 1
-                    ? 'bg-white text-red-600 border-white'
-                    : 'border-red-300'
-                }`}
-              >
-                {currentStep > 1 ? <FaCheckCircle size={14} /> : '1'}
-              </div>
-              <span className="ml-2 text-sm font-medium">Details</span>
-            </div>
-            <div
-              className={`w-12 h-1 mx-2 ${
-                currentStep >= 2 ? 'bg-white' : 'bg-red-400'
-              }`}
-            ></div>
-            <div
-              className={`flex items-center ${
-                currentStep >= 2 ? 'text-white' : 'text-red-300'
-              }`}
-            >
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-                  currentStep >= 2
-                    ? 'bg-white text-red-600 border-white'
-                    : 'border-red-300'
-                }`}
-              >
-                {currentStep > 2 ? <FaCheckCircle size={14} /> : '2'}
-              </div>
-              <span className="ml-2 text-sm font-medium">Confirm</span>
-            </div>
           </div>
         </div>
 
@@ -182,15 +140,33 @@ const BuyNowModal = ({ isOpen, onClose, product, quantity }) => {
                       </span>
                     </div>
 
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 flex items-center">
-                        <FaShippingFast className="w-3 h-3 mr-1 text-blue-500" />
-                        Delivery Charge:
-                      </span>
-                      <span className="font-medium">
-                        ৳{deliveryCharge.toLocaleString()}
-                      </span>
-                    </div>
+                    {product?.freeDelivery == true ? (
+                      <>
+                        {' '}
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-600 flex items-center">
+                            <FaShippingFast className="w-3 h-3 mr-1 text-blue-500" />
+                            Delivery Charge:
+                          </span>
+                          <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">
+                            🎉 Free Delivery
+                          </span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {' '}
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-600 flex items-center">
+                            <FaShippingFast className="w-3 h-3 mr-1 text-blue-500" />
+                            Delivery Charge:
+                          </span>
+                          <span className="font-medium">
+                            ৳{deliveryCharge.toLocaleString()}
+                          </span>
+                        </div>
+                      </>
+                    )}
 
                     <div className="border-t border-gray-200 pt-2 mt-2">
                       <div className="flex justify-between items-center">
