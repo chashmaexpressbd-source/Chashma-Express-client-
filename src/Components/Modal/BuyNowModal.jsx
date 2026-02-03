@@ -77,17 +77,8 @@ const BuyNowModal = ({ isOpen, onClose, product, quantity }) => {
     <div className="fixed inset-0  bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300 scale-100">
         {/* Header with Gradient */}
-        <div className="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white relative">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                <FaShoppingBag className="w-6 h-6" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold">Complete Your Order</h2>
-                <p className="text-red-100 mt-1">Fast & Secure Checkout</p>
-              </div>
-            </div>
+        <div className="bg-gradient-to-r from-red-600 to-red-700 text-white relative">
+          <div className="flex items-center justify-end">
             <button
               onClick={onClose}
               className="text-white hover:text-red-200 transition-colors p-2 rounded-full hover:bg-white hover:bg-opacity-10"

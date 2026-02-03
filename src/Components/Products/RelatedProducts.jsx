@@ -71,7 +71,7 @@ export default function RelatedProducts({ products }) {
 text-white px-3 py-1 rounded text-xs font-medium 
 transition-all duration-200 hover:shadow-md active:scale-95"
                   >
-                    Order Now
+                    অর্ডার করুন
                   </button>
                 </div>
               </div>

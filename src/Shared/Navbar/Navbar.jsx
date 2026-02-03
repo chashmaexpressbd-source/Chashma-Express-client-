@@ -128,6 +128,24 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-6 py-4 hover:bg-gray-100 font-medium"
+                >
+                  Sunglass
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-6 py-4 hover:bg-gray-100 font-medium"
+                >
+                  Blue Cut Lens
+                </Link>
+              </li>
             </ul>
           </div>
         )}

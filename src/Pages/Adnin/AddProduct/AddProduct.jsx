@@ -271,14 +271,6 @@ const AddProduct = () => {
     }
   };
 
-  const generateSKU = () => {
-    const prefix = productData.category
-      ? productData.category.substring(0, 3).toUpperCase()
-      : 'GLASS';
-    const sku = `${prefix}-${Date.now().toString().slice(-6)}-${Math.random().toString(36).substr(2, 3).toUpperCase()}`;
-    setProductData(prev => ({ ...prev, sku }));
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 p-4 md:p-6">
       <div className="">
@@ -339,65 +331,42 @@ const AddProduct = () => {
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             Category *
                           </label>
-                          <select
+                          <input
+                            type="text"
                             name="category"
                             value={productData.category}
                             onChange={handleInputChange}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none bg-white"
+                            list="categories"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                            placeholder="Select or type a category"
                             required
-                          >
-                            <option value="">Select Category</option>
+                          />
+                          <datalist id="categories">
                             {categories.map(category => (
-                              <option key={category} value={category}>
-                                {category}
-                              </option>
+                              <option key={category} value={category} />
                             ))}
-                          </select>
+                          </datalist>
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            Brand
-                          </label>
-                          <select
-                            name="brand"
-                            value={productData.brand}
-                            onChange={handleInputChange}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                          >
-                            <option value="">Select Brand</option>
-                            {brands.map(brand => (
-                              <option key={brand} value={brand}>
-                                {brand}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-
-                        <div>
-                          <div className="flex items-center justify-between mb-2">
-                            <label className="block text-sm font-semibold text-gray-700">
-                              SKU Code
-                            </label>
-                            <button
-                              type="button"
-                              onClick={generateSKU}
-                              className="text-sm text-blue-600 hover:text-blue-800 font-medium"
-                            >
-                              Generate
-                            </button>
-                          </div>
-                          <input
-                            type="text"
-                            name="sku"
-                            value={productData.sku}
-                            onChange={handleInputChange}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                            placeholder="e.g., RB-AV-001"
-                          />
-                        </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          Brand
+                        </label>
+                        <input
+                          type="text"
+                          name="brand"
+                          value={productData.brand}
+                          onChange={handleInputChange}
+                          list="brands"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                          placeholder="Select or type a brand"
+                        />
+                        <datalist id="brands">
+                          {brands.map(brand => (
+                            <option key={brand} value={brand} />
+                          ))}
+                        </datalist>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -483,38 +452,40 @@ const AddProduct = () => {
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             Frame Material
                           </label>
-                          <select
+                          <input
+                            type="text"
                             name="frameMaterial"
                             value={productData.frameMaterial}
                             onChange={handleInputChange}
+                            list="frameMaterials"
                             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                          >
-                            <option value="">Select Material</option>
+                            placeholder="Select or type frame material"
+                          />
+                          <datalist id="frameMaterials">
                             {frameMaterials.map(material => (
-                              <option key={material} value={material}>
-                                {material}
-                              </option>
+                              <option key={material} value={material} />
                             ))}
-                          </select>
+                          </datalist>
                         </div>
 
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             Lens Type
                           </label>
-                          <select
+                          <input
+                            type="text"
                             name="lensType"
                             value={productData.lensType}
                             onChange={handleInputChange}
+                            list="lensTypes"
                             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                          >
-                            <option value="">Select Lens Type</option>
+                            placeholder="Select or type lens type"
+                          />
+                          <datalist id="lensTypes">
                             {lensTypes.map(type => (
-                              <option key={type} value={type}>
-                                {type}
-                              </option>
+                              <option key={type} value={type} />
                             ))}
-                          </select>
+                          </datalist>
                         </div>
                       </div>
 
@@ -523,19 +494,20 @@ const AddProduct = () => {
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             Lens Color
                           </label>
-                          <select
+                          <input
+                            type="text"
                             name="lensColor"
                             value={productData.lensColor}
                             onChange={handleInputChange}
+                            list="lensColors"
                             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                          >
-                            <option value="">Select Lens Color</option>
+                            placeholder="Select or type lens color"
+                          />
+                          <datalist id="lensColors">
                             {lensColors.map(color => (
-                              <option key={color} value={color}>
-                                {color}
-                              </option>
+                              <option key={color} value={color} />
                             ))}
-                          </select>
+                          </datalist>
                         </div>
 
                         <div>
@@ -547,9 +519,15 @@ const AddProduct = () => {
                             name="frameColor"
                             value={productData.frameColor}
                             onChange={handleInputChange}
+                            list="frameColors"
                             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                            placeholder="e.g., Black, Gold, Tortoise"
+                            placeholder="Select or type frame color"
                           />
+                          <datalist id="frameColors">
+                            {lensColors.map(color => (
+                              <option key={color} value={color} />
+                            ))}
+                          </datalist>
                         </div>
                       </div>
 
