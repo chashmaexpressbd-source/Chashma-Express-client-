@@ -143,7 +143,7 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className="block px-6 py-4 hover:bg-gray-100 font-medium"
                 >
-                  Blue Cut Lens
+                  Blue Cut
                 </Link>
               </li>
             </ul>

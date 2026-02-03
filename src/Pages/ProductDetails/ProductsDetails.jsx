@@ -282,7 +282,6 @@ const ProductDetails = () => {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-500">Price includes all taxes</p>
             </div>
 
             <div className="flex gap-5 md:gap-10 ">
