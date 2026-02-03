@@ -2,6 +2,7 @@ import React from 'react';
 import {
   FaEnvelope,
   FaFacebook,
+  FaFacebookMessenger,
   FaMapMarkerAlt,
   FaPhone,
   FaWhatsapp,
@@ -48,6 +49,14 @@ const Footer = () => {
                   className="bg-white p-3 rounded-lg hover:bg-green-50 transition duration-200 shadow-md hover:shadow-lg"
                 >
                   <FaWhatsapp className="w-5 h-5 text-green-600" />
+                </a>
+                {/* Messenger */}
+                <a
+                  target="_blank"
+                  href="https://m.me/chashmaexpressbd"
+                  className="bg-white p-3 rounded-lg hover:bg-blue-100 transition duration-200 shadow-md hover:shadow-lg"
+                >
+                  <FaFacebookMessenger className="w-5 h-5 text-blue-500" />
                 </a>
               </div>
             </div>

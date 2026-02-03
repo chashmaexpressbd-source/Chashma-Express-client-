@@ -17,8 +17,7 @@ const ProductCards = ({ product }) => {
     discountPrice,
     brand = 'Porsche Design',
     images,
-    isNew = true,
-    isHot = false,
+
     stock = 15,
     freeDelivery = false,
     gender = 'Women',
@@ -39,7 +38,7 @@ const ProductCards = ({ product }) => {
   const displayDiscountPrice = discountPrice ? parseFloat(discountPrice) : null;
 
   return (
-    <div className="group bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-sm sm:shadow-md lg:shadow-lg overflow-hidden hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 hover:border-amber-100">
+    <div className="group bg-white rounded-lg sm:rounded-xl lg:rounded-md shadow-sm sm:shadow-md lg:shadow-lg overflow-hidden hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 hover:border-amber-100">
       {/* Product Image Section */}
       <div className="relative overflow-hidden">
         <Link to={`/products-details/${_id}`}>
@@ -184,8 +183,8 @@ const ProductCards = ({ product }) => {
           {/* Action Buttons */}
           <div className="mt-2">
             <Link to={`/products-details/${_id}`} className="flex-1">
-              <button className="w-full bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white py-2 sm:py-3 rounded-md font-semibold text-sm sm:text-base transition-all duration-200 hover:shadow-lg active:scale-[0.98]">
-                View Details
+              <button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-2 sm:py-3 rounded-md font-semibold text-sm sm:text-base transition-all duration-200 hover:shadow-lg active:scale-[0.98]">
+                অর্ডার করুন
               </button>
             </Link>
 

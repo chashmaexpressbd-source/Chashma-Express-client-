@@ -15,6 +15,7 @@ import {
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import axios from 'axios';
 import BuyNowModal from '../../Components/Modal/BuyNowModal';
+import RelatedProducts from '../../Components/Products/RelatedProducts';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -69,7 +70,6 @@ const ProductDetails = () => {
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading product details...</p>
         </div>
       </div>
     );
@@ -193,15 +193,7 @@ const ProductDetails = () => {
                 Home
               </Link>
             </li>
-            <li className="flex items-center">
-              <span className="mx-2">/</span>
-              <Link
-                to="/products"
-                className="hover:text-red-600 transition-colors"
-              >
-                Products
-              </Link>
-            </li>
+
             <li className="flex items-center">
               <span className="mx-2">/</span>
               <span className="text-gray-900 font-medium truncate max-w-[200px]">
@@ -376,7 +368,7 @@ const ProductDetails = () => {
                   className="flex-1 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-6 rounded-md font-bold text-lg transition-all duration-200 hover:shadow-xl active:scale-[0.98] flex items-center justify-center gap-3 shadow-lg shadow-red-200"
                 >
                   <FaShoppingCart size={20} />
-                  Order Now
+                  অর্ডার করুন
                 </button>
               </div>
             </div>
@@ -497,86 +489,7 @@ const ProductDetails = () => {
         </div>
 
         {/* Related Products */}
-        <div className="mt-20">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900">
-                Related Products
-              </h2>
-              <p className="text-gray-600 mt-1">You might also like these</p>
-            </div>
-            <Link
-              to="/"
-              className="text-red-600 hover:text-red-700 font-medium flex items-center gap-2"
-            >
-              View all
-              <FaArrowRight size={14} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
-            {products?.slice(0, 4).map(product => (
-              <div
-                key={product._id}
-                className="group bg-white rounded-md border border-gray-200 overflow-hidden hover:border-red-300 hover:shadow-xl transition-all duration-300"
-              >
-                <Link to={`/products-details/${product._id}`}>
-                  <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
-                    <img
-                      src={product.images?.[0]}
-                      alt={product.name}
-                      className="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
-                    />
-                    {product.isNew && (
-                      <span className="absolute top-3 left-3 bg-red-600 text-white text-xs px-2 py-1 rounded-full font-medium">
-                        NEW
-                      </span>
-                    )}
-                    {product.discountPrice &&
-                      product.price > product.discountPrice && (
-                        <span className="absolute top-3 right-3 bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full font-bold">
-                          SALE
-                        </span>
-                      )}
-                  </div>
-                  <div className="p-4">
-                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
-                      {product.brand}
-                    </p>
-                    <h3 className="font-semibold text-gray-900 line-clamp-1 mb-2 group-hover:text-red-600 transition-colors">
-                      {product.name}
-                    </h3>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        {product.discountPrice &&
-                        product.price > product.discountPrice ? (
-                          <div className="flex items-baseline gap-2">
-                            <span className="text-lg font-bold text-gray-900">
-                              ৳{product.discountPrice}
-                            </span>
-                            <span className="text-sm text-gray-500 line-through">
-                              ৳{product.price}
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="text-lg font-bold text-gray-900">
-                            ৳{product.price}
-                          </span>
-                        )}
-                      </div>
-                      <Link to={`/products-details/${product._id}`}>
-                        {' '}
-                        <button className="text-red-600 hover:text-red-700 font-medium text-sm">
-                          View →
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
+        <RelatedProducts products={products}></RelatedProducts>
       </main>
 
       <BuyNowModal
