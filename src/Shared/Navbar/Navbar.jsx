@@ -108,7 +108,7 @@ const Navbar = () => {
               <div className="relative">
                 <FaShoppingCart className="w-5 h-5" />
                 <span className="absolute -top-2 -right-2 bg-amber-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold shadow-md">
-                  3
+                  0
                 </span>
               </div>
               <span className="text-sm font-medium hidden lg:inline">Cart</span>
