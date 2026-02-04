@@ -62,7 +62,7 @@ export default function RelatedProducts({ products }) {
                       </div>
                     ) : (
                       <span className="text-lg font-bold text-gray-900">
-                        ৳{product.price}
+                        ৳{product.discountPrice}
                       </span>
                     )}
                   </div>{' '}

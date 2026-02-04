@@ -24,6 +24,7 @@ const ProductCards = ({ product }) => {
     category = 'Frame Collection',
     specifications = [],
   } = product || {};
+  console.log(product);
 
   const discountPercent =
     discountPrice && price

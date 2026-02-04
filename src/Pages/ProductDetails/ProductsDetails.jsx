@@ -151,35 +151,6 @@ const ProductDetails = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky Action Bar */}
-      <div className="sticky top-0 z-10 md:z-0 bg-white border-b border-gray-300 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <button
-              onClick={() => navigate(-1)}
-              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <IoMdArrowRoundBack size={20} />
-              <span className="hidden sm:inline">Back</span>
-            </button>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setWishlisted(!wishlisted)}
-                className={`p-2 rounded-full transition-all ${wishlisted ? 'bg-red-50 text-red-500' : 'hover:bg-gray-100 text-gray-600'}`}
-              >
-                <FaHeart
-                  size={20}
-                  className={wishlisted ? 'fill-current' : ''}
-                />
-              </button>
-              <button className="p-2 rounded-full hover:bg-gray-100 text-gray-600 transition-colors">
-                <FaShare size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
@@ -286,49 +257,49 @@ const ProductDetails = () => {
 
             <div className="flex gap-5 md:gap-10 ">
               {/* Color & Size Options */}
-              {(frameColor || lensColor) && (
+              {(frameColor || lensColor || category || gender) && (
                 <div className="mb-8">
                   <h3 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">
                     Options
                   </h3>
-                  <div className="flex flex-wrap gap-3">
+
+                  <div className="grid grid-cols-4 gap-4">
                     {frameColor && (
                       <div>
                         <p className="text-xs text-gray-500 mb-1">
                           Frame Color
                         </p>
-                        <span className="text-sm font-medium bg-gray-100 px-3 py-1 rounded-full">
+                        <span className="inline-block text-sm font-medium bg-gray-100 px-3 py-1 rounded-full">
                           {frameColor}
                         </span>
                       </div>
                     )}
+
                     {lensColor && (
                       <div>
                         <p className="text-xs text-gray-500 mb-1">Lens Color</p>
-                        <span className="text-sm font-medium bg-gray-100 px-3 py-1 rounded-full">
+                        <span className="inline-block text-sm font-medium bg-gray-100 px-3 py-1 rounded-full">
                           {lensColor}
                         </span>
+                      </div>
+                    )}
+
+                    {category && (
+                      <div>
+                        <p className="text-xs text-gray-500 mb-1">Category</p>
+                        <span className="text-sm font-medium">{category}</span>
+                      </div>
+                    )}
+
+                    {gender && (
+                      <div>
+                        <p className="text-xs text-gray-500 mb-1">Gender</p>
+                        <span className="text-sm font-medium">{gender}</span>
                       </div>
                     )}
                   </div>
                 </div>
               )}
-              {/* Product Meta */}
-              <div className="text-sm text-gray-600 space-y-2">
-                <p>
-                  <span className="font-medium text-gray-900">SKU:</span> {sku}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-900">Category:</span>{' '}
-                  {category}
-                </p>
-                {gender && (
-                  <p>
-                    <span className="font-medium text-gray-900">Gender:</span>{' '}
-                    {gender}
-                  </p>
-                )}
-              </div>
             </div>
 
             {/* Quantity & Actions */}
@@ -364,7 +335,7 @@ const ProductDetails = () => {
                           Free Delivery
                         </p>
                         <p className="text-xs text-green-600">
-                          Within 3-5 days
+                          Within 2-3 days
                         </p>
                       </div>
                     </div>
