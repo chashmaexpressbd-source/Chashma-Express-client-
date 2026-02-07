@@ -255,7 +255,7 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <div className="flex gap-5 md:gap-10 ">
+            <div className="flex  md:gap-10 ">
               {/* Color & Size Options */}
               {(frameColor || lensColor || category || gender) && (
                 <div className="mb-8">
@@ -263,13 +263,13 @@ const ProductDetails = () => {
                     Options
                   </h3>
 
-                  <div className="grid grid-cols-4 gap-4">
+                  <div className="grid grid-cols-4 gap-2">
                     {frameColor && (
                       <div>
-                        <p className="text-xs text-gray-500 mb-1">
+                        <p className="text-[12px] text-gray-500 mb-1">
                           Frame Color
                         </p>
-                        <span className="inline-block text-sm font-medium bg-gray-100 px-3 py-1 rounded-full">
+                        <span className="inline-block text-[11px] font-medium bg-gray-100 px-2 py-1 rounded-full">
                           {frameColor}
                         </span>
                       </div>
@@ -277,8 +277,10 @@ const ProductDetails = () => {
 
                     {lensColor && (
                       <div>
-                        <p className="text-xs text-gray-500 mb-1">Lens Color</p>
-                        <span className="inline-block text-sm font-medium bg-gray-100 px-3 py-1 rounded-full">
+                        <p className="text-[12px] text-gray-500 mb-1">
+                          Lens Color
+                        </p>
+                        <span className="inline-block text-[11px] font-medium bg-gray-100 px-2 py-1 rounded-full">
                           {lensColor}
                         </span>
                       </div>
@@ -286,15 +288,21 @@ const ProductDetails = () => {
 
                     {category && (
                       <div>
-                        <p className="text-xs text-gray-500 mb-1">Category</p>
-                        <span className="text-sm font-medium">{category}</span>
+                        <p className="text-[12px] text-gray-500 mb-1">
+                          Category
+                        </p>
+                        <span className="text-[11px] font-medium">
+                          {category}
+                        </span>
                       </div>
                     )}
 
                     {gender && (
                       <div>
-                        <p className="text-xs text-gray-500 mb-1">Gender</p>
-                        <span className="text-sm font-medium">{gender}</span>
+                        <p className="text-[12px] text-gray-500 mb-1">Gender</p>
+                        <span className="text-[11px] font-medium">
+                          {gender}
+                        </span>
                       </div>
                     )}
                   </div>
