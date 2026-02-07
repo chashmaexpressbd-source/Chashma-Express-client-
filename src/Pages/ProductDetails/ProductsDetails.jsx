@@ -263,7 +263,7 @@ const ProductDetails = () => {
                     Options
                   </h3>
 
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="grid grid-cols-3 gap-5">
                     {frameColor && (
                       <div>
                         <p className="text-[12px] text-gray-500 mb-1">
@@ -297,14 +297,14 @@ const ProductDetails = () => {
                       </div>
                     )}
 
-                    {gender && (
+                    {/* {gender && (
                       <div>
                         <p className="text-[12px] text-gray-500 mb-1">Gender</p>
                         <span className="text-[11px] font-medium">
                           {gender}
                         </span>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               )}
