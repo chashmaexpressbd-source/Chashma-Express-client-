@@ -269,7 +269,7 @@ const ProductDetails = () => {
                         <p className="text-[12px] text-gray-500 mb-1">
                           Frame Color
                         </p>
-                        <span className="inline-block text-[11px] font-medium bg-gray-100 px-2 py-1 rounded-full">
+                        <span className="inline-block text-[11px] font-medium  px-2 py-1 rounded-full">
                           {frameColor}
                         </span>
                       </div>
@@ -280,7 +280,7 @@ const ProductDetails = () => {
                         <p className="text-[12px] text-gray-500 mb-1">
                           Lens Color
                         </p>
-                        <span className="inline-block text-[11px] font-medium bg-gray-100 px-2 py-1 rounded-full">
+                        <span className="inline-block text-[11px] font-medium  px-2 py-1 rounded-full">
                           {lensColor}
                         </span>
                       </div>
